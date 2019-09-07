@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <div class="info">
+      <a itemprop="url">
+        <h1 itemprop="title"></h1>
+      </a>
+      <div class="directed">
+        Directed by
+        <a itemprop="directedByURL">
+          <span itemprop="directedBy" class="director-name"></span>
+        </a>
+      </div>
+      <div class="country-year">
+        <span itemprop="country"></span>,
+        <span itemprop="year"></span>
+      </div>
+      <div class="genres" itemprop="genres"></div>
+      <ul>
+        <li>
+          <i class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16px"
+              height="16px"
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="far"
+              data-icon="clock"
+              class="svg-inline--fa fa-clock fa-w-16"
+              role="img"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"
+              />
+            </svg>
+          </i>
+          <time datetime="PT123M" itemprop="duration"> </time>
+        </li>
+      </ul>
+      <div class="official-site">
+        <a href="https://mubi.com">mubi.com</a>
+      </div>
+    </div>
+    <meta property="og:image" itemprop="image" />
+  </body>
+  <script>
+    const data = [
+      {
+        image:
+          "https://assets.mubi.com/images/film/23390/image-w1280.jpg?1567541781",
+        title: "SCARLET DIVA",
+        url: "https://mubi.com/films/scarlet-diva",
+        directedBy: "ASIA ARGENTO",
+        directedByURL: "https://mubi.com/cast/asia-argento",
+        year: 2000,
+        country: "Italy",
+        genres: "Drama, Romance",
+        duration: 91
+      },
+      {
+        image:
+          "https://assets.mubi.com/images/film/4412/image-w1280.jpg?1470231309",
+        title: "VALLEY OF THE DOLLS",
+        url: "https://mubi.com/films/valley-of-the-dolls",
+        directedBy: "MARK ROBSON",
+        directedByURL: "https://mubi.com/cast/mark-robson",
+        year: 1967,
+        country: "United States",
+        genres: ["Drama"],
+        duration: 123
+      },
+      {
+        image:
+          "https://assets.mubi.com/images/film/9744/image-w1280.jpg?1557103095",
+        title: "FUNERAL PARADE OF ROSES",
+        url: "https://mubi.com/films/funeral-parade-of-roses",
+        directedBy: "TOSHIO MATSUMOTO",
+        directedByURL: "https://mubi.com/cast/toshio-matsumoto",
+        year: 1969,
+        country: "Japan",
+        genres: "Avant-Garde, Cult, LGBT+",
+        duration: 105
+      }
+    ];
+
+    function updateHTML(data) {
+      document
+        .querySelector("[itemprop=image]")
+        .setAttribute("content", data.image);
+
+      document.querySelector("[itemprop=url]").setAttribute("href", data.url);
+      document.querySelector("[itemprop=title]").innerHTML = data.title;
+
+      document
+        .querySelector("[itemprop=directedByURL]")
+        .setAttribute("href", data.directedByURL);
+      document.querySelector("[itemprop=directedBy]").innerHTML =
+        data.directedBy;
+
+      document.querySelector("[itemprop=country]").innerHTML = data.country;
+
+      document.querySelector("[itemprop=year]").innerHTML = data.year;
+      document.querySelector("[itemprop=genres]").innerHTML = data.genres;
+      document.querySelector("[itemprop=duration]").innerHTML = data.duration;
+
+      const meta = document.querySelector('[property="og:image"]');
+      document.body.style.background = `url(${meta.content}) center center no-repeat fixed`;
+      document.body.style.backgroundSize = "cover";
+    }
+    const index = Math.floor(Math.random() * data.length);
+
+    updateHTML(data[index]);
+  </script>
+</html>
