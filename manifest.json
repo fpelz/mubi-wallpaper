@@ -1,12 +1,12 @@
 {
   "name": "MUBI movie list wallpaper",
   "author": "Fillipi Pelz",
-  "version": "1.0",
+  "version": "2.0",
   "description": "Essa extensão é um dos sonhos de princesa da Fernanda",
   "manifest_version": 2,
   "permissions": ["activeTab"],
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
-  "content_security_policy": "script-src 'self' 'sha256-i3HQBsLXUJwWfoUTonqEwkFiiqmo7zg8nl95y/ID3H0='; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'sha256-lmwR3Z7/uBvCGC4t7qXo6kzV2XAJUybhF62IxAGXeZQ='; object-src 'self'"
 }
